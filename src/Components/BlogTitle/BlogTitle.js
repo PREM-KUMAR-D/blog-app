@@ -6,7 +6,7 @@ const BlogTitle =(props)=>{
     return(
      <div className={classes.title}>
         <h1>Blog Title</h1>
-        <button type="button">Add New Blog</button>
+        <button type="button" onClick={props.onClick}>Add New Blog</button>
         <div className={classes.underline}></div>
      </div>   
     )

@@ -3,7 +3,7 @@ import Modal from "../Modal/Modal";
 const BlogForm = (props) => {
 
     return (
-        <Modal>
+        <Modal onClose={props.onClose}>
             <form>
                 <div>
                     <div>
@@ -21,7 +21,7 @@ const BlogForm = (props) => {
                 </div>
                 <div>
                     <button type="submit">Post Blog</button>
-                    <button type="button">Close</button>
+                    <button type="button" onClick={props.onClose}>Close</button>
                 </div>
             </form>
         </Modal>
