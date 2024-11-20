@@ -1,0 +1,9 @@
+.title{
+    text-align: center;
+}
+
+.title .underline {
+    width: 80%;
+    margin: 10px auto;
+    border-bottom: 2px solid black;
+}
