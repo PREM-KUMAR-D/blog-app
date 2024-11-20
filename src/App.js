@@ -3,20 +3,20 @@ import Blogs from "./Components/Blogs/Blogs";
 import BlogTitle from "./Components/BlogTitle/BlogTitle";
 import BlogForm from "./Components/BlogForm/BlogForm";
 import BlogProvider from "./store/BlogProvider";
-
+import BlogContext from "./store/blog-context";
 
 function App() {
 
   const [showModal, setShowModal] = useState(false);
-
-  const handleFormAdd = () => {
+  
+  const handleFormShow = () => {
     setShowModal((prev) => !prev);
   }
 
   return (
     <BlogProvider>
-      <BlogTitle onClick={handleFormAdd} />
-      {showModal && <BlogForm onClose={handleFormAdd} />}
+      <BlogTitle onClick={handleFormShow} />
+      {showModal && <BlogForm onClose={handleFormShow}  onFormCompletion={handleFormShow}/>}
     
       <Blogs/>
     </BlogProvider>

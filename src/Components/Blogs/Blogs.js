@@ -8,7 +8,9 @@ const Blogs = (props) => {
     const blogCtx = useContext(BlogContext);
 
     const blogs = blogCtx.blogs;
-    // console.log("Blogs Recieved:"+JSON.stringify(blogs))
+
+
+
 
     const blogItems = blogs.map((blog) => {
         
@@ -16,11 +18,14 @@ const Blogs = (props) => {
             title={blog.title}
             url={blog.url}
             key={blog.id}
+            id={blog.id}
+            description={blog.description}
+            onRemove={blogCtx.removeBlogs}
         >
         </BlogItem>)
 
     })
-    console.log(blogItems)
+  
 
     return (
         <Card>

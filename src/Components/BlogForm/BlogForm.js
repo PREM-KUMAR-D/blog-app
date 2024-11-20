@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import Modal from "../Modal/Modal";
+import BlogContext from "../../store/blog-context";
 const BlogForm = (props) => {
+    
+    const blogCtx = useContext(BlogContext);
+
+    const handleFormSubmit =(event) =>{
+        event.preventDefault();
+        const toAddBlog = {
+          title: event.target.title.value,
+          id: Math.random().toString(),
+          description: event.target.description.value,
+          url: event.target.url.value,
+        }
+        blogCtx.setBlogs(toAddBlog);
+        props.onFormCompletion();
+    }
+    
 
     return (
         <Modal onClose={props.onClose}>
-            <form>
+            <form onSubmit={handleFormSubmit}>
                 <div>
                     <div>
                         <label htmlFor="url"> Image Url : </label>
@@ -20,7 +36,7 @@ const BlogForm = (props) => {
                     </div>
                 </div>
                 <div>
-                    <button type="submit">Post Blog</button>
+                    <button type="submit" >Post Blog</button>
                     <button type="button" onClick={props.onClose}>Close</button>
                 </div>
             </form>
