@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import BlogContext from "./blog-context";
 
@@ -12,25 +12,24 @@ const BlogProvider = (props)=>{
         id:1,
     }]);
 
+    const [blogToEdit, setBlogToEdit] = useState(null);
+
+
+
  
 
     const addBlogHandler = (blog)=>{
-        setBlogs((prevBlogs) => {
-            
-            const existingBlogIndex = prevBlogs.findIndex((b) => b.id === blog.id);
-            if (existingBlogIndex !== -1) {
-            
-              const updatedBlogs = [...prevBlogs];
-              updatedBlogs[existingBlogIndex] = blog;
-              return updatedBlogs;
-            } else {
-              return [...prevBlogs, blog];
-            }
-          });
+        setBlogs((prevBlogs) => [...prevBlogs, blog]);
     }
 
     const removeBlogHandler = (id)=>{
         setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog.id !== id));
+    }
+
+    const updateBlogHandler =(id,updatedBlog)=>{
+        setBlogs((prevBlogs) =>
+            prevBlogs.map((blog) => (blog.id === id ? updatedBlog : blog))
+          );
     }
 
 
@@ -38,6 +37,10 @@ const BlogProvider = (props)=>{
         blogs:blogs,
         setBlogs:addBlogHandler,
         removeBlogs:removeBlogHandler,
+        editBlogs:updateBlogHandler,
+        blogToEdit: blogToEdit,
+        setBlogToEdit: setBlogToEdit,
+
     }
 
     return(

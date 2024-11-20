@@ -15,12 +15,11 @@ const Blogs = (props) => {
     const blogItems = blogs.map((blog) => {
         
         return (<BlogItem
-            title={blog.title}
-            url={blog.url}
+            blog={blog}
             key={blog.id}
-            id={blog.id}
-            description={blog.description}
-            onRemove={blogCtx.removeBlogs}
+            onEdit={props.onEdit}
+            onEditCompletion={props.onEditCompletion}
+            onShowModalChange={props.onShowModalChange}
         >
         </BlogItem>)
 
