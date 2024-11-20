@@ -5,7 +5,11 @@ import BlogContext from "./blog-context";
 const BlogProvider = (props)=>{
 
 
-    const [blogs,setBlogs] = useState([]);
+    const [blogs,setBlogs] = useState([{
+        title:"test Title",
+        url:"https://4kwallpapers.com/images/walls/thumbs_2t/19793.jpg",
+        id:1,
+    }]);
 
     const addBlogHandler = (blog)=>{
 

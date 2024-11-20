@@ -7,15 +7,15 @@ const BlogForm = (props) => {
             <form>
                 <div>
                     <div>
-                        <label htmlFor="url">Image Url </label>
+                        <label htmlFor="url"> Image Url : </label>
                         <input id="url" name="url"></input>
                     </div>
                     <div>
-                        <label htmlFor="title"> Title </label>
+                        <label htmlFor="title"> Title : </label>
                         <input id="title" name="title"></input>
                     </div>
                     <div>
-                        <label htmlFor="description"> Image Description </label>    
+                        <label htmlFor="description"> Image Description : </label>    
                         <input id="description" name="description"></input>
                     </div>
                 </div>
